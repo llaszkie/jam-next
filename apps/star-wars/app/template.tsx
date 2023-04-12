@@ -1,24 +1,23 @@
-'use client';
-
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import ActiveLink from './activeLink';
 
-export function Home({
+async function getHeros() {
+  const res = await fetch('https://swapi.dev/api/people');
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch heros data');
+  }
+
+  return res.json();
+}
+
+export async function Home({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
-  const [heros, setHeros] = useState([] as Array<{ name: string }>);
-
-  useEffect(() => {
-    fetch('https://swapi.dev/api/people')
-      .then((response) => response.json())
-      .then((data) => setHeros(data.results));
-  }, []);
-
-  const pathname = usePathname();
+  const heros = (await getHeros()).results;
 
   return (
     <section className="h-screen overflow-hidden bg-green-900">
@@ -33,19 +32,7 @@ export function Home({
           <ul>
             {heros.map((h, index) => (
               <li className="p-5" key={index + 1}>
-                <Link
-                  href={`/${index + 1}`}
-                  className={`${
-                    pathname == '/' + (index + 1)
-                      ? 'text-red-500'
-                      : 'text-blue-500'
-                  } underline
-                    ${
-                      pathname == '/' + (index + 1) ? '' : 'hover:text-blue-900'
-                    } `}
-                >
-                  {h.name}
-                </Link>
+                <ActiveLink heroId={index + 1} heroName={h.name} />
               </li>
             ))}
           </ul>
@@ -59,7 +46,7 @@ export function Home({
 
 export default Home;
 
-// export const metadata: Metadata = {
-//   title: 'Home',
-//   description: 'Welcome to Next.js',
-// };
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Welcome to Next.js',
+};
