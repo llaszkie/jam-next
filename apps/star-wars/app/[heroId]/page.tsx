@@ -26,4 +26,13 @@ async function Hero({ params }: { params: { heroId: string } }) {
   );
 }
 
+// Return a list of `params` to populate the [heroId] dynamic segment
+export async function generateStaticParams() {
+  return Array(10)
+    .fill(0, 0, 10)
+    .map((_, index) => ({
+      heroId: index + 1 + '',
+    }));
+}
+
 export default Hero;
