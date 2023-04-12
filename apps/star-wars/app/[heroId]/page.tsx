@@ -1,20 +1,20 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
 type Hero = {
   name: string;
 };
 
-export function Hero({ params }: { params: { heroId: string } }) {
-  const [hero, setHero] = useState({} as Hero);
-  const { heroId } = params;
+async function getHero(heroId: string) {
+  console.log('Fetching hero!', heroId);
+  const res = await fetch(`https://swapi.dev/api/people/${heroId}`);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch hero data ${heroId}`);
+  }
 
-  useEffect(() => {
-    fetch(`https://swapi.dev/api/people/${heroId}`)
-      .then((response) => response.json())
-      .then((data) => setHero(data));
-  }, [setHero, heroId]);
+  return res.json();
+}
+
+export async function Hero({ params }: { params: { heroId: string } }) {
+  const { heroId } = params;
+  const hero: Hero = await getHero(heroId);
 
   return (
     <article>

@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import ActiveLink from './activeLink';
 
 async function getHeros() {
+  console.log('Fetching heros!');
   const res = await fetch('https://swapi.dev/api/people');
-  // Recommendation: handle errors
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch heros data');
   }
 
@@ -45,8 +44,3 @@ export async function Home({
 }
 
 export default Home;
-
-export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Welcome to Next.js',
-};
