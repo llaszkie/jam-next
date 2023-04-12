@@ -1,4 +1,4 @@
-export function Main() {
+function Main() {
   return (
     <main className="basis-3/4 bg-slate-200">
       <h3 className="p-5 text-center text-lg uppercase text-blue-900">

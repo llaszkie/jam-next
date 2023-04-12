@@ -27,6 +27,7 @@
     "**/*.js",
     "**/*.jsx",
     "next-env.d.ts",
+    "../../dist/apps/star-wars/.next/types/**/*.ts",
     "../../apps/star-wars/.next/types/**/*.ts"
   ],
   "exclude": [

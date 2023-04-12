@@ -1,4 +1,4 @@
-type Hero = {
+type HeroType = {
   name: string;
 };
 
@@ -12,9 +12,9 @@ async function getHero(heroId: string) {
   return res.json();
 }
 
-export async function Hero({ params }: { params: { heroId: string } }) {
+async function Hero({ params }: { params: { heroId: string } }) {
   const { heroId } = params;
-  const hero: Hero = await getHero(heroId);
+  const hero: HeroType = await getHero(heroId);
 
   return (
     <article>

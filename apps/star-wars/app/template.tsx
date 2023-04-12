@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import ActiveLink from './activeLink';
 
 async function getHeros() {
