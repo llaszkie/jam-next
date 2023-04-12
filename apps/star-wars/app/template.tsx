@@ -2,6 +2,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export function Home({
@@ -16,6 +17,8 @@ export function Home({
       .then((response) => response.json())
       .then((data) => setHeros(data.results));
   }, []);
+
+  const pathname = usePathname();
 
   return (
     <section className="h-screen overflow-hidden bg-green-900">
@@ -32,10 +35,14 @@ export function Home({
               <li className="p-5" key={index + 1}>
                 <Link
                   href={`/${index + 1}`}
-                  // className={({ isActive }) =>
-                  //   `${isActive ? "text-red-500" : "text-blue-500"} underline
-                  //   ${isActive ? "" : "hover:text-blue-900"} `
-                  // }
+                  className={`${
+                    pathname == '/' + (index + 1)
+                      ? 'text-red-500'
+                      : 'text-blue-500'
+                  } underline
+                    ${
+                      pathname == '/' + (index + 1) ? '' : 'hover:text-blue-900'
+                    } `}
                 >
                   {h.name}
                 </Link>
