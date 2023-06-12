@@ -1,0 +1,17 @@
+{
+  "name": "json-server",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "targets": {
+    "json-server": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "json-server",
+        "command": "node server.js"
+      },
+      "parallel": true
+    }
+  },
+  "tags": [],
+  "implicitDependencies": []
+}
