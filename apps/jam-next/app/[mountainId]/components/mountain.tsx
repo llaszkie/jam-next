@@ -9,6 +9,7 @@ type Mountain = {
 };
 
 async function getData(mountainId: string) {
+  console.log(`Fetching mountain: ${mountainId}`);
   const res = await fetch(`http://localhost:3000/mountains/${mountainId}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.

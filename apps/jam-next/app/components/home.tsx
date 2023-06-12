@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 async function getData() {
+  console.log('Fetching mountains');
   const res = await fetch(`http://localhost:3000/mountains`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
