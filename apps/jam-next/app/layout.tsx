@@ -1,4 +1,5 @@
 import './global.css';
+import Home from './components/home';
 
 export const metadata = {
   title: 'Welcome to jam-next',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Home>{children}</Home>
+      </body>
     </html>
   );
 }
