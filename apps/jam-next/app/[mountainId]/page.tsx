@@ -1,6 +1,6 @@
 import Mountain from './components/mountain';
 
-export default function MountainPage({
+export default async function MountainPage({
   params,
 }: {
   params: { mountainId: string };
