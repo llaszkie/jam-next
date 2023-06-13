@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import ActiveLink from './activeLink';
 
 async function getData() {
   console.log('Fetching mountains');
@@ -35,16 +35,7 @@ export default async function Home({
           <ul>
             {mountains.map((m: { title: string; id: string }) => (
               <li className="p-5" key={m.id}>
-                <Link
-                  href={`/${m.id}`}
-                  // FIXME: what would be Next.js way?
-                  // className={({ isActive }) =>
-                  //   `${isActive ? 'text-red-500' : 'text-blue-500'} underline
-                  //   ${isActive ? '' : 'hover:text-blue-900'} `
-                  // }
-                >
-                  {m.title}
-                </Link>
+                <ActiveLink href={`/${m.id}`} text={m.title} />
               </li>
             ))}
           </ul>
