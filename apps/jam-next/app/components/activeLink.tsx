@@ -11,7 +11,7 @@ export default function ActiveLink({
   href: string;
   text: string;
 }) {
-  const isActive = usePathname().includes(href);
+  const isActive = usePathname()?.includes(href);
   return (
     <Link
       href={href}
