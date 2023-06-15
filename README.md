@@ -17,6 +17,18 @@ To start the development server run `nx serve jam-next`. Open your browser and n
 - `npm run test`: jest baased unit testing, you can pass an extra falg `-- --watch` to TDD
 - `npm run e2e` : execute cypress based e2e tests
 
+## The course content (branch driven)
+
+- [00-initial](https://github.com/llaszkie/jam-next/tree/00-initial): project structure like generated initially by `nx`
+- [01-start](https://github.com/llaszkie/jam-next/tree/01-start): enhancments like: db server, scripts,
+- [02-csr](https://github.com/llaszkie/jam-next/tree/02-csr): [jam-spa](https://github.com/llaszkie/jam-spa), application ported as client side rendered app,
+- [03-rsc](https://github.com/llaszkie/jam-next/tree/03-rsc): server components introduced for fetching data,
+- [04-image](https://github.com/llaszkie/jam-next/tree/04-image): image optimization done with `next/image`,
+- [05-site-generation](https://github.com/llaszkie/jam-next/tree/05-site-generation): pre-rendering site markup for known content,
+- [06-client-component](https://github.com/llaszkie/jam-next/tree/06-client-component): client features (active links),
+- [07-site-export](https://github.com/llaszkie/jam-next/tree/07-site-export): exporting whole site for 100% static hosting,
+- [08-unit-testing](https://github.com/llaszkie/jam-next/tree/08-unit-testing): unit testing with Jest
+
 ## Generate code
 
 If you happen to use Nx plugins, you can leverage code generators that might come with it.
