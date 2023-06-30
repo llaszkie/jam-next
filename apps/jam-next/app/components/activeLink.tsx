@@ -15,7 +15,7 @@ export default function ActiveLink({
   return (
     <Link
       href={href}
-      className={`${isActive ? 'text-red-500' : 'text-blue-500'} underline
+      className={`${isActive ? 'text-red-700' : 'text-cyan-800'} underline
         ${isActive ? '' : 'hover:text-blue-900'} `}
     >
       {text}
