@@ -1,18 +1,25 @@
-'use client';
-
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
-export default function Home({ children }: { children: React.ReactNode }) {
-  const [mountains, setMountains] = useState(
-    [] as Array<{ title: string; id: string }>
-  );
+async function getData() {
+  const res = await fetch(`http://localhost:3000/mountains`);
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
 
-  useEffect(() => {
-    fetch('http://localhost:3000/mountains')
-      .then((response) => response.json())
-      .then((data) => setMountains(data));
-  }, []);
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+export default async function Home({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const mountains = await getData();
 
   return (
     <section className="h-screen overflow-hidden bg-green-900">
@@ -25,7 +32,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
       <div className="flex h-screen">
         <aside className="mx-0.5 flex basis-1/4 bg-slate-300 bg-gradient-to-t from-slate-400 to-slate-50">
           <ul>
-            {mountains.map((m) => (
+            {mountains.map((m: { title: string; id: string }) => (
               <li className="p-5" key={m.id}>
                 <Link
                   href={`/${m.id}`}
