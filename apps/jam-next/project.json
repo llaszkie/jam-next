@@ -23,7 +23,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "jam-next:build",
-        "dev": true
+        "dev": true,
+        "port": 4300
       },
       "configurations": {
         "development": {
