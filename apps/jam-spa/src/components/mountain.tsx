@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 type Mountain = {
   title: string;
@@ -21,7 +21,7 @@ export function Mountain() {
 
   return (
     <article>
-      <h3 className="p-5 text-lg text-center uppercase text-blue-900">
+      <h3 className="p-5 text-lg text-center uppercase text-green-900">
         {mountain.title}
       </h3>
       <img
@@ -30,27 +30,27 @@ export function Mountain() {
         alt=""
       ></img>
       <p className="p-5 m-5">{mountain.description}</p>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg m-5">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg m-10">
         <table className="w-full text-sm text-left ">
           <tbody>
-            <tr className="border-b border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium whitespace-nowrap  text-white bg-slate-600"
-              >
-                Height
-              </th>
-              <td className="px-6 py-4">{mountain.height}</td>
-            </tr>
-            <tr className="border-b -border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium whitespace-nowrap  text-white bg-slate-600"
-              >
-                Continent
-              </th>
-              <td className="px-6 py-4">{mountain.continent}</td>
-            </tr>
+          <tr className="border-b border-gray-700">
+            <th
+              scope="row"
+              className="px-6 py-4 font-medium whitespace-nowrap  text-white bg-slate-600"
+            >
+              Height
+            </th>
+            <td className="px-6 py-4">{mountain.height}</td>
+          </tr>
+          <tr className="border-b -border-gray-700">
+            <th
+              scope="row"
+              className="px-6 py-4 font-medium whitespace-nowrap  text-white bg-slate-600"
+            >
+              Continent
+            </th>
+            <td className="px-6 py-4">{mountain.continent}</td>
+          </tr>
           </tbody>
         </table>
       </div>

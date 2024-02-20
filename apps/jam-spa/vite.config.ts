@@ -5,16 +5,16 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/my-new-app',
+  cacheDir: '../../node_modules/.vite/apps/jam-spa',
 
   server: {
     port: 4200,
-    host: 'localhost',
+    host: 'localhost'
   },
 
   preview: {
     port: 4300,
-    host: 'localhost',
+    host: 'localhost'
   },
 
   plugins: [react(), nxViteTsPaths()],
@@ -25,25 +25,25 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/my-new-app',
+    outDir: '../../dist/apps/jam-spa',
     reportCompressedSize: true,
     commonjsOptions: {
-      transformMixedEsModules: true,
-    },
+      transformMixedEsModules: true
+    }
   },
 
   test: {
     globals: true,
     cache: {
-      dir: '../../node_modules/.vitest',
+      dir: '../../node_modules/.vitest'
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/apps/my-new-app',
-      provider: 'v8',
-    },
-  },
+      reportsDirectory: '../../coverage/apps/jam-spa',
+      provider: 'v8'
+    }
+  }
 });
