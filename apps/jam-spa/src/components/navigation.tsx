@@ -30,8 +30,8 @@ export function Navigation() {
       debouncedSubmit();
     }
     // Cleanup function to cancel the debounce if the component is unmounted
-    return () => debouncedSubmit.cancel(); // If you're using lodash debounce, it provides a .cancel() method
-  }, [inputValue, debouncedSubmit]);
+    return () => debouncedSubmit.cancel();
+  }, [inputValue]);
 
   return (
     <nav className="flex flex-col basis-1/4 bg-slate-300 bg-gradient-to-t from-slate-400 to-slate-50">
