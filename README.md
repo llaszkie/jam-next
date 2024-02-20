@@ -22,6 +22,7 @@ The goal of the repo is to **learn a transformation for a Web app written entire
 ## The course content 
 
 - [00-initial](https://github.com/llaszkie/jam-next/tree/00-initial): project structure like generated initially by `nx` and sample SPA app ready
+- [01-start](https://github.com/llaszkie/jam-next/tree/01-start): enhancements: TailwindCSS for Next.js
 
 ## Start the app 
 
