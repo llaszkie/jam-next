@@ -32,7 +32,7 @@ To start the API server run `nx serve json-server`. Open your browser and naviga
 To start the development server run `nx serve jam-spa`. Open your browser and navigate to http://localhost:4200/. 
 
 ### FE: Next
-To start the development server run `nx serve jam-next`. Open your browser and navigate to http://localhost:4200/.
+To start the development server run `nx dev jam-next`. Open your browser and navigate to http://localhost:3001/.
 
 Happy coding!
 
