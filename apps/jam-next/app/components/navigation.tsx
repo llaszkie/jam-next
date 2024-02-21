@@ -3,6 +3,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { debounce } from 'lodash';
 import Link from 'next/link';
+import { fetchMountains } from './actions/fetchMountains';
 
 export function Navigation() {
   const [inputValue, setInputValue] = useState<string>('');
@@ -15,13 +16,10 @@ export function Navigation() {
   };
 
   // Function to handle the "submission" logic
-  const handleSubmitLogic = () => {
+  const handleSubmitLogic = async () => {
     console.log('Submitting value:', inputValue);
-    fetch(inputValue === '*' ?
-      'http://localhost:3000/mountains' :
-      `http://localhost:3000/mountains?id=${inputValue}`)
-      .then((response) => response.json())
-      .then((data) => setMountains(data));
+    const mountains = await fetchMountains(inputValue);
+    setMountains(mountains);
   };
 
   // Debounce the submission logic
