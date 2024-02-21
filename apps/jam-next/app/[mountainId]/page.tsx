@@ -1,7 +1,3 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
 type Mountain = {
   title: string;
   description: string;
@@ -10,17 +6,21 @@ type Mountain = {
   continent: string;
 };
 
-export default function Mountain({ params }: {
+const fetchMountain = async (mountainId: string) => {
+  console.log(`Fetching mountain: ${mountainId}`);
+  const fetchResult = await fetch(`http://localhost:3000/mountains/${mountainId}`);
+  if (!fetchResult.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch mountain data');
+  }
+  return fetchResult.json();
+};
+
+export default async function Mountain({ params }: {
   params: { mountainId: string };
 }) {
-  const [mountain, setMountain] = useState({} as Mountain);
   const { mountainId } = params;
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/mountains/${mountainId}`)
-      .then((response) => response.json())
-      .then((data) => setMountain(data));
-  }, [setMountain, mountainId]);
+  const mountain: Mountain = await fetchMountain(mountainId);
 
   return (
     <article>
