@@ -4,12 +4,11 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { debounce } from 'lodash';
 import Link from 'next/link';
 import { fetchMountains } from './actions/fetchMountains';
+import { MountainShort } from './types/type';
 
 export function Navigation() {
   const [inputValue, setInputValue] = useState<string>('');
-  const [mountains, setMountains] = useState(
-    [] as Array<{ title: string; id: string }>
-  );
+  const [mountains, setMountains] = useState<MountainShort[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);

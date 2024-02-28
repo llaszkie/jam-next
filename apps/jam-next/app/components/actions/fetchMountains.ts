@@ -1,6 +1,8 @@
-'use server'
+'use server';
 
-export async function fetchMountains(inputValue: string): Promise<Array<{ title: string; id: string }>> {
+import { MountainShort } from '../types/type';
+
+export async function fetchMountains(inputValue: string): Promise<MountainShort[]> {
   console.log(`Fetching mountains: ${inputValue}`);
   const fetchResult = await fetch(inputValue === '*' ?
     'http://localhost:3000/mountains' :
